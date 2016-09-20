@@ -5,25 +5,27 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 /**
  * Created by Pewds on 20-Sep-16.
  */
 public class FragmentOne extends Fragment {
 
+    private View rootView;
+    private ListView listView;
+
     public FragmentOne() {
         // Required empty public constructor
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment1, container, false);
+        rootView = inflater.inflate(R.layout.fragment1, container, false);
+
+        listView = (ListView) rootView.findViewById(R.id.contactList);
+
+        return rootView;
     }
 }
